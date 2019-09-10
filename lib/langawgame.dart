@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flame/game.dart';
+import 'package:flame/flame.dart';
 
 class LangawGame extends Game {
   Size screenSize;
@@ -17,5 +18,13 @@ class LangawGame extends Game {
   void resize(Size size) {
     screenSize = size;
     tileSize = screenSize.width / 9;
+  }
+
+  LangawGame() {
+    initialize();
+  }
+
+  void initialize() async {
+    resize(await Flame.util.initialDimensions());
   }
 }
